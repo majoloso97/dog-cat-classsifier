@@ -20,10 +20,10 @@ def get_resources_data(csv_url):
 
 
 @st.experimental_memo
-def memoize_examples(example_names, example_urls, model):
+def memoize_examples(example_names, example_urls, _model):
     examples = {}
     for i in range(len(example_names)):
-        examples[example_names[i]] = model.show_predict_image(example_urls[i], source_type = 'url')
+        examples[example_names[i]] = _model.show_predict_image(example_urls[i], source_type = 'url')
     return examples
 
 
