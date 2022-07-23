@@ -27,16 +27,18 @@ class ModelProcessor:
             return model
 
 
-    def load_image(self, source, from_url = True, image_size = (180,180)):
-        if from_url:
+    def load_image(self, source, source_type = 'url', image_size = (180,180)):
+        if source_type == 'url':
             image = Image.open(
                             BytesIO(
                                 self.get_from_url(source)
                                 )
                             )
             image = image.resize(image_size)        
-        else:
+        elif source_type == 'file':
             image = keras.preprocessing.image.load_img(source, target_size=image_size)
+        else:
+            image = source.resize(image_size)
         return image
 
 
@@ -53,13 +55,13 @@ class ModelProcessor:
         
         return figure
 
-    def show_predict_image(self, source, from_url = True, image_size = (180,180)):
-        image = self.load_image(source, from_url=from_url, image_size=image_size)
+    def show_predict_image(self, source, source_type = 'url', image_size = (180,180)):
+        image = self.load_image(source, source_type=source_type, image_size=image_size)
         plot = self.show_img(image)
         prep_image = self.preprocess_image(image)
 
         predictions = self.model.predict(prep_image)
         score = predictions[0]
         
-        predicted = "The selected image is %.2f percent cat and %.2f percent dog."% (100 * (1 - score), 100 * score)
+        predicted = " %.2f percent cat and %.2f percent dog."% (100 * (1 - score), 100 * score)
         return predicted, plot

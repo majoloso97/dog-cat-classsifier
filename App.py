@@ -1,6 +1,6 @@
-from ModelProcessor import ModelProcessor
 import streamlit as st
 import pandas as pd
+from PIL import Image
 from ModelProcessor import ModelProcessor
 
 @st.experimental_singleton
@@ -32,13 +32,24 @@ model_url, example_names, example_urls = get_resources_data(url_refs)
 
 model = initiate_model(model_url)
 
-A, B = st.columns(2)
+with st.expander('Examples'):
+    A, B = st.columns([3,1])
 
-selected_image = A.selectbox('Choose an image to test the model:', example_names)
+    selected_image = A.selectbox('Choose an image to test the model:', example_names)
+    selected_url = example_urls[example_names.index(selected_image)]
 
-selected_url = example_urls[example_names.index(selected_image)]
+    prediction, plot = model.show_predict_image(selected_url, source_type='url')
 
-prediction, plot = model.show_predict_image(selected_url, from_url=True)
+    A.subheader('The selected image is' + prediction)
+    B.subheader("Loaded image:")
+    B.pyplot(plot)
 
-A.subheader(prediction)
-B.pyplot(plot)
+with st.expander('Predict from camera'):
+    C, D = st.columns(2)
+    pic = C.camera_input('Take a photo!')
+    if pic is not None:
+        img = Image.open(pic)
+        prediction, plot = model.show_predict_image(img, source_type='camera')
+        D.subheader("Input image to model:")
+        D.subheader('The captured photo is:' + prediction)
+        D.pyplot(plot)
