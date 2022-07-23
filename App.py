@@ -24,6 +24,8 @@ def app_globals():
     st.markdown('''### For more details about architecture, check [the source repo on GitHub](https://github.com/majoloso97/dog-cat-classsifier)
                 ''')
 
+app_globals()
+
 url_refs = 'https://github.com/majoloso97/dog-cat-classsifier/blob/main/URL%20references.csv?raw=true'
 
 model_url, example_names, example_urls = get_resources_data(url_refs)
