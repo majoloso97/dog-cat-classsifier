@@ -1,0 +1,14 @@
+AssetType,URL,Name
+model,https://github.com/majoloso97/dog-cat-classsifier/blob/main/save_at_50.h5?raw=true,
+cat_1,https://github.com/majoloso97/dog-cat-classsifier/blob/main/Sample%20images/cat_1.jpeg?raw=true,Cat 1
+cat_2,https://github.com/majoloso97/dog-cat-classsifier/blob/main/Sample%20images/cat_2.jpeg?raw=true,Cat 2
+cat_3,https://github.com/majoloso97/dog-cat-classsifier/blob/main/Sample%20images/cat_3.jpeg?raw=true,Cat 3
+dog_1,https://github.com/majoloso97/dog-cat-classsifier/blob/main/Sample%20images/dog_1.jpeg?raw=true,Dog 1
+dog_2,https://github.com/majoloso97/dog-cat-classsifier/blob/main/Sample%20images/dog_2.jpeg?raw=true,Dog 2
+dog_3,https://github.com/majoloso97/dog-cat-classsifier/blob/main/Sample%20images/dog_3.jpeg?raw=true,Dog 3
+elephant,https://github.com/majoloso97/dog-cat-classsifier/blob/main/Sample%20images/elephant.jpeg?raw=true,Elephant
+man,https://github.com/majoloso97/dog-cat-classsifier/blob/main/Sample%20images/man.jpeg?raw=true,Man
+panther,https://github.com/majoloso97/dog-cat-classsifier/blob/main/Sample%20images/panther.jpeg?raw=true,Panther
+pigeon,https://github.com/majoloso97/dog-cat-classsifier/blob/main/Sample%20images/pigeon.jpeg?raw=true,Pigeon
+wolf,https://github.com/majoloso97/dog-cat-classsifier/blob/main/Sample%20images/wolf.jpeg?raw=true,Wolf
+woman,https://github.com/majoloso97/dog-cat-classsifier/blob/main/Sample%20images/woman.jpeg?raw=true,Woman
