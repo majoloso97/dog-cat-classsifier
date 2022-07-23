@@ -32,7 +32,7 @@ model_url, example_names, example_urls = get_resources_data(url_refs)
 
 model = initiate_model(model_url)
 
-selected_image = st.multiselect('Choose an image to test the model:', example_names)
+selected_image = st.selectbox('Choose an image to test the model:', example_names)
 
 selected_url = example_urls[example_names.index(selected_image)]
 
