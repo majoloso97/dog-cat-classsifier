@@ -53,8 +53,8 @@ class ModelProcessor:
 
     def show_predict_image(self, source, from_url = True, image_size = (180,180)):
         image = self.load_image(source, from_url=from_url, image_size=image_size)
-        self.show_img_v2(image)
-        prep_image = self.preprocess_image_v2(image)
+        self.show_img(image)
+        prep_image = self.preprocess_image(image)
 
         predictions = self.model.predict(prep_image)
         score = predictions[0]
