@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 from ModelProcessor import ModelProcessor
+from io import BytesIO
 
 @st.experimental_singleton
 def initiate_model(source_url):
@@ -50,6 +51,16 @@ with st.expander('Predict from camera'):
     if pic is not None:
         img = Image.open(pic)
         prediction, plot = model.show_predict_image(img, source_type='camera')
-        D.subheader("Input image to model:")
         D.subheader('The captured photo is:' + prediction)
+        D.subheader("Input image to model:")
         D.pyplot(plot)
+
+with st.expander('Upload file from computer'):
+    E, F = st.columns(2)
+    pic = E.file_uploader('Upload an image (only jpeg allowed)', ['jpeg', 'jpg'])
+    if pic is not None:
+        img = Image.open(BytesIO(pic.getvalue()))
+        prediction, plot = model.show_predict_image(img, source_type='camera')
+        E.subheader('The captured photo is:' + prediction)
+        F.subheader("Input image to model:")
+        F.pyplot(plot)
